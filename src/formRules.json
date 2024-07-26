@@ -1,0 +1,77 @@
+{
+  "fields": [
+    {
+      "label": "Selecciona un país",
+      "model": "selectedCountry",
+      "options": [
+        { "name": "México", "value": "Mexico" },
+        { "name": "Estados Unidos", "value": "USA" },
+        { "name": "Alemania", "value": "Germany" },
+        { "name": "Otro", "value": "other", "requiresInput": true }
+      ],
+      "extraInputModel": "otherCountry",
+      "extraInputLabel": "Especifica otro país"
+    },
+    {
+      "label": "Selecciona tu sexo",
+      "model": "selectedSex",
+      "options": [
+        { "name": "Hombre", "value": "male" },
+        { "name": "Mujer", "value": "female" },
+        { "name": "Otro", "value": "other", "requiresInput": true }
+      ],
+      "extraInputModel": "otherSex",
+      "extraInputLabel": "Especifica otro sexo"
+    },
+    {
+      "label": "Ingresa tu edad",
+      "model": "age",
+      "type": "number",
+      "extraInputs": [
+        {
+          "model": "guardianName",
+          "label": "Nombre del responsable legal"
+        },
+        {
+          "model": "guardianPhone",
+          "label": "Teléfono del responsable legal"
+        },
+        {
+          "model": "guardianEmail",
+          "label": "Correo electrónico del responsable legal"
+        }
+      ],
+      "condition": { "lessThan": 18 }
+    },
+    {
+      "label": "Selecciona tu ocupación",
+      "model": "selectedOccupation",
+      "options": [
+        { "name": "Estudiante", "value": "student" },
+        { "name": "Empleado", "value": "employee" },
+        { "name": "Desempleado", "value": "unemployed" },
+        { "name": "Otro", "value": "other", "requiresInput": true }
+      ],
+      "extraInputModel": "otherOccupation",
+      "extraInputLabel": "Especifica otra ocupación"
+    },
+    {
+      "label": "¿Tiene alguna discapacidad?",
+      "model": "hasDisability",
+      "options": [
+        { "name": "Sí", "value": "yes", "requiresInput": true },
+        { "name": "No", "value": "no" }
+      ],
+      "extraInputs": [
+        {
+          "model": "disabilityType",
+          "label": "Tipo de discapacidad"
+        },
+        {
+          "model": "disabilityDetails",
+          "label": "Detalles de la discapacidad"
+        }
+      ]
+    }
+  ]
+}
