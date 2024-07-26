@@ -1,13 +1,12 @@
 <template>
   <div class="container mt-5">
-    <form @submit.prevent="handleSubmit">
+    <form>
       <div class="mb-3">
         <label for="country" class="form-label">Selecciona un país:</label>
         <select v-model="selectedCountry" @change="checkOtherCountry" class="form-select">
-          <option value="Mexico">México</option>
-          <option value="USA">Estados Unidos</option>
-          <option value="Germany">Alemania</option>
-          <option value="other">Otro</option>
+          <option v-for="country in countries" :key="country.value" :value="country.value">
+            {{ country.name }}
+          </option>
         </select>
       </div>
 
@@ -15,36 +14,30 @@
         <label for="otherCountry" class="form-label">Especifica otro país:</label>
         <input type="text" v-model="otherCountry" id="otherCountry" class="form-control" />
       </div>
-
-      <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
   </div>
 </template>
 
 <script>
+import countriesData from './validacion.json';
+
 export default {
   data() {
     return {
       selectedCountry: '',
       showOtherCountryInput: false,
       otherCountry: '',
+      countries: countriesData.countries,
     };
   },
   methods: {
     checkOtherCountry() {
-      this.showOtherCountryInput = this.selectedCountry === 'other';
+      const selected = this.countries.find((country) => country.value === this.selectedCountry);
+      this.showOtherCountryInput = selected ? selected.requiresInput : false;
       if (!this.showOtherCountryInput) {
         this.otherCountry = '';
       }
     },
-    handleSubmit() {
-      const country = this.selectedCountry === 'other' ? this.otherCountry : this.selectedCountry;
-      alert(`País seleccionado: ${country}`);
-    },
   },
 };
 </script>
-
-<style scoped>
-/* Aquí puedes agregar estilos adicionales si es necesario */
-</style>

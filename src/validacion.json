@@ -1,0 +1,22 @@
+{
+  "countries": [
+    {
+      "name": "México",
+      "value": "Mexico",
+      "requiresInput": true
+    },
+    {
+      "name": "Estados Unidos",
+      "value": "USA"
+    },
+    {
+      "name": "Alemania",
+      "value": "Germany",
+      "requiresInput": true
+    },
+    {
+      "name": "Otro",
+      "value": "other"
+    }
+  ]
+}
